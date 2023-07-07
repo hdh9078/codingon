@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width:500px;
+            height:500px;
+        }
+        .container > div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .img {
+            width: 500px;
+            z-index: 5;
+        }
+        .container > div:nth-child(n+2){
+            position: absolute;
+        }
+        .one {
+            position:relative;
+            background-color:rgb(87, 87, 255);
+        }
+        .two {
+            position:absolute;
+            background-color:rgb(39, 39, 255);
+            left:30px;
+            top: 70px;
+        }
+        .three {
+            background-color:rgb(150, 150, 255);
+            left: 60px;
+            top: 90px;
+        }
+        .four {
+            background-color:rgb(100, 100, 255);
+            left: 80px;
+            top: 110px;
+        }
+        .five {
+            background-color:rgb(200, 200, 255);
+            left: 100px;
+            top: 130px;
+            z-index: 6;
+        }
+        .white {
+            width:30px;
+            height:30px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+            top:30px;
+            left:15px;
+        }
+        .black {
+            width:15px;
+            height:15px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div class=one> 
+        <div class="white">
+            <div class="black"></div>
+        </div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+        <img class="img" src="pngwing.com.png">
+</body>
+</html>
