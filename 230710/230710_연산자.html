@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //비교연산자
+        let num = 1;
+        num = 5;
+        let numstring = "5";
+
+        console.log(num >=1)
+        
+        console.log(num === numstring);// === type까지 비교
+        console.log(num !== numstring)// !== type까지 비교
+    
+        console.log(num % 2) //나머지출력
+        console.log((num % 5) ==0);//true
+        console.log(num ** 2)//거듭제곱 5의2승
+        
+        //연산자 줄여쓰기
+        num = num +5;//num 5 더하여 재할당
+        num += 5; //위에 식을 줄인 것
+        num *= 5;
+
+        num = num + 1;
+        num++;//위에 식을 줄인 것 (증가연산자) ++num
+        num = num - 1;
+        num--;//(감소연산자) --num
+
+        //논리연산자
+        console.log(true && false)//&& = and : 앞 뒤 둘다 참이여야 true
+        console.log(num == 50 && num >= 50)
+        console.log(true || false)// || = or : 앞 뒤 하나만 참이면 true
+        console.log(num > 50 || num <=50);
+        console.log(!true)// true는 false로 false는 true로 바꿔준다.
+        console.log(!(num > 50))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
