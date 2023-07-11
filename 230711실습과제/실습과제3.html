@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add() {
+            let a = prompt("첫번째 숫자입력")
+            let b = prompt("두번째 숫자입력")
+            let sum = Number(a)+Number(b)
+            return alert(sum)
+        }
+
+        function min() {
+            let a = prompt("첫번째 숫자입력")
+            let b = prompt("두번째 숫자입력")
+            let sum = Number(a)-Number(b)
+            return alert(sum)
+        }
+        function qq() {
+            let a = prompt("첫번째 숫자입력")
+            let b = prompt("두번째 숫자입력")
+            let sum = Number(a)*Number(b)
+            return alert(sum)
+        }
+        function ww() {
+            let a = prompt("첫번째 숫자입력")
+            let b = prompt("두번째 숫자입력")
+            let sum = Number(a)/Number(b)
+            return alert(sum)
+        }
+        
+    </script>
+    <button onclick="add()">더하기</button>
+    <button onclick="min()">빼기</button>
+    <button onclick="qq()">곱하기</button>
+    <button onclick="ww()">나누기</button>
+</body>
+</html>

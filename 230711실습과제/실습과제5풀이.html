@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let age = Number(prompt("나이를 입력하시오"))
+        let aaa = (prompt("성별을 입력하시오"))
+            if(age >= 20) {
+                if(aaa=="남자") {
+                    alert("성인 남자")
+                } else {
+                    alert("성인 여자")
+                }
+            } else if (age>=17){
+                if(aaa=="남자") {
+                    alert("남고등학생")
+                } else {
+                    alert("여고등학생")
+                }
+            } else if (age>=14) {
+                if(aaa=="남자") {
+                    alert("남중학생")
+                } else {
+                    alert("여중학생")
+                }   
+            } else if (age>=8) {
+                if (aaa=="남자") {
+                    alert("남초등학생")
+                } else {
+                    alert("여초등학생")
+                }    
+            } else {
+                alert("유아")
+            }
+    </script>
+</body>
+</html>

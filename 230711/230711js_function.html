@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //함수 선언
+        function sayHello() {
+            console.log("hello");
+        }
+        sayHello();
+        //함수 표현
+        const sayhello = function() {
+            console.log("hi");
+        }
+        sayhello();
+        //화살표함수
+        const hello = () => {
+            console.log("hello~");
+        }
+        hello();
+    </script>
+    <script>
+        let number = 5;
+        //매개변수가 없고, 반환값도 없음
+        //매개변수란 함수 외부에서 사용한 변수, 값 등을 함수 내부로 전달하고 싶을 때 사용
+        //반환값이란 함수 내부에서 사용한 생성된 변수, 값 등을 함수 외부로 전달하고 싶을 때 사용
+        // 1. 매개변수가 없고, 반환값도 없음
+        function aaa () {
+            console.log("aaa");
+        }
+        aaa()
+        // 2.매개변수가 없고, 반환값이 있음
+        function bbb() {
+            return "bbb";
+        }
+        console.log(bbb())
+        let str = bbb()
+        // 3.매개변수 있고, 반환값 없음
+        let number1 = 5;
+        let number2 = 3;
+        function ccc (num1, num2) {
+            console.log(num1 + num2)
+        }
+        ccc(number1, 3);
+        ccc(number1, "hello");
+        // 4.매개변수 있고, 반환값 있음
+        function ddd (name) {
+            return name + "입니다."
+        }
+        ddd("rara");
+        let num =ddd("rara")
+        console.log(num)
+
+        let sum = (num1, num2) => {
+            let num = num1 + num2;
+            let muul = num * 5;
+            return muul;
+        }
+        let aaa = sum(3, 2);
+        console.log(aaa)
+    </script>
+</body>
+</html>
