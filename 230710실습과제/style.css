@@ -72,11 +72,10 @@ section .sky .moon {
   75% {opacity: 0.5;}
   100% {opacity: 0;}*/
 }
-.cloul_1{
+
+section .sky .cloud_1 {
   width:100px;
   height:100px;
-}
-section .sky .cloud_1 {
   position: absolute;
   width: auto;
   animation: loop 3s  infinite;
@@ -84,7 +83,7 @@ section .sky .cloud_1 {
 
 @keyframes loop {
   0% {left:0px; top:0px}
-  50% {left:100px; top:0px}
+  50% {left:100vw; top:0px}
   100% {left:0px; top:0px}
 }
 

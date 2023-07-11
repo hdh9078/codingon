@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //for문
+        for(let i=0; i<10; i= i+2) {
+           console.log(i);
+        }
+        
+        let fruits = ["apple", "banana", "ornage", "grape"]
+        for(let i=0; i<fruits.length; i++ ) {
+            console.log(fruits[i]);
+        }
+
+        let number = 5;
+        let sum = 0;
+        for(let i=1; i<6; i++) {
+            sum += i; // sum = sum + i
+        }
+        console.log(sum)
+
+        //감소예시
+        for(let i = 5; i>0; i--) {
+            console.log(i)
+        }
+
+        for(let i=1; i<=5; i++) {
+            for(let j=0; j<5; j++) {
+                console.log(i, j)
+            }
+        }
+
+        //continue 다음줄 안 읽고 넘어감
+        let fruitss = ["apple", "banana", "ornage", "grape"]
+        for(let i=0; i<fruitss.length; i++ ) {
+            if(fruitss[i] == "banana") {
+                continue
+            }
+            console.log(fruitss[i]); // banana빼고 출력
+        }
+    </script>
+</body>
+</html>
