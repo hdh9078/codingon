@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+        width:100px;
+        height:100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="red" class="box red">
+        <span>빨간</span>
+        <span>상자</span>
+    </div>
+    <div id="orange" class="box orange"></div>
+    <div class="box yellow"></div>
+    <button Type="button" onclick="redToggle()">깜빡 깜빡</button>
+
+
+    <script>
+        // let redBox = document.getElementById("red")
+        // redBox.textContent = "<span>aaa</span>"
+        // console.log(redBox.innerText)//text만 가져온다
+        // console.log(redBox.innerHTML)//태그까지 가져온다
+        // console.log(redBox.textContent)//text만 가져온다
+        
+        // console.log(redBox.className)
+        // redBox.className = "box yellow"//class이름변경
+
+        // console.log(redBox.classList.add())
+
+
+        // classList 속성은 contains 함수 제공
+        // 괄호 안에 들어온 값이 class에 존재하는지 검사하여 true or false로 준다
+        
+        // remove 괄호 안에 들어온 값을 리스트 안에서 삭제
+        
+        // add 괄호 안에 들어온 값을 리스트 안에 추가
+        function redToggle() {
+            let redBox = document.getElementById("red")
+            if(redBox.classList.contains("red"))
+                redBox.classList.remove("red")
+            else {
+                redBox.classList.add("red")
+            }
+        }
+
+        // toggle 괄호 안에 들어온 값을 리스트 안에 존재하는 지 알아서 판단
+        // 괄호 안에 들어온 값을 자동으로 추가하거나 삭제
+        function redToggle() {
+            let redBox = document.getElementById("red")
+            redBox.classList.toggle("red")
+        }
+    </script>
+
+    
+</body>
+</html>

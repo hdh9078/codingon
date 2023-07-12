@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+        width:100px;
+        height:100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="red" class="box red"></div>
+    <div id="orange" class="box orange"></div>
+    <div class="box yellow"></div>
+    <input type="text" name="id"/>
+    
+
+    <script>
+        let redBoxByID = document.getElementById("red")
+        console.log(redBoxByID)//무조건 하나만 선택하겠다 배열x
+
+        let boxes =document.getElementsByClassName("box")
+        console.log(boxes)//배열에 담긴다
+
+        let boxesByTag = document.getElementsByTagName("div")
+        console.log(boxesByTag)//배열에 담긴다
+
+        let input = document.getElementsByName("id")
+        console.log(input)//배열에 담긴다
+
+        let boxesBySelector = document.querySelector(".box") //"[name=id]" 이런식으로도 사용가능
+        console.log(boxesBySelector)//무조건 하나만 선택하겠다 배열x
+
+        let boxesBySelectorAll = document.querySelectorAll(".box")
+        console.log(boxesBySelectorAll)//배열에 담긴다
+
+        let ornageBySelectorAll = document.querySelectorAll("#orange")
+        console.log(ornageBySelectorAll)//배열에 담긴다
+    </script>
+</body>
+</html>

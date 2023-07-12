@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let now = new Date() //오늘 기준
+        let expired = new Date("2023-06-07")
+        
+        console.log(now)
+        console.log(expired)
+        console.log(now.getFullYear()) //2023
+        console.log(now.getMonth()+1) //현재 월에 -1 값 현재 월값 얻고싶으면 +1
+        console.log(now.getDate()) // 일을 알려줌
+        console.log(now.getDay()) //숫자로 요일 알려줌
+        console.log(now.getTime()) //1970년부터의 흐른 시간
+        console.log(now.getTime() >= expired.getTime()) //true로 나옴
+        
+        let year = now.getFullYear()
+        let month = now.getMonth()+1
+        let date = now.getDate()
+        console.log(`${year}-${month >= 10 ? month : "0" +month}-${date >= 10 ? date : "0"+date}`)
+    
+    </script>
+</body>
+</html>

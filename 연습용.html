@@ -4,19 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <style>
+        .box {
+        width:100px;
+        height:100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
+
+    <div id="red" class="box red">
+        <span>빨간</span>
+        <span>상자</span>
+    </div>
+    <div id="orange" class="box orange"></div>
+    <div class="box yellow"></div>
+    <button Type="button" onclick="orangeToggle()">깜빡 깜빡</button>
+    
     <script>
-        let n = 0;
-        let m = 0;
-        while(n<100) {
-            if(n%2===0 || n%3===0) {
-                m += n
+        function orangeToggle () {
+            let orangeBox = document.getElementById("orange")
+            if (orangeBox.classList.contains("orange")) {
+                orangeBox.classList.remove("orange")
+            } else {
+                orangeBox.classList.add("orange")
             }
-            n++
         }
-        console.log(m)
+            
+    
     </script>
     
 </body>

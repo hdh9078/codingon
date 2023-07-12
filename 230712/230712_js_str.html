@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "Happy day~! ";
+        console.log(str.length);//길이
+        console.log(str.toUpperCase());//대문자로 변경
+        console.log(str.toLowerCase());//소문자로 변경
+        console.log(str.indexOf("p"));//문자가 몇번째에 포함되어 있는지 없는 값은 -1
+        console.log(str.slice(2, 7));//2부터 7-1까지 보여줌
+        console.log(str.replace("p", "a"));//처음p 하나만 변경
+        console.log(str.replaceAll("p", "a"));// 다 바꿔줌
+        console.log(str.repeat(2));//반복
+        console.log(str.trim());//양 끝의 공백 지워줌
+        console.log(str.split("a"));//a로 나눈다
+        console.log(str.split(" "));//공백으로 나눈다
+
+        let hello = "Hello~";
+        let hellow = hello.split("").reverse().join("");
+        //["H", "e", "l", "l", "o", "~"]
+        //["~", "o", "l", "l", "e", "H"]
+        // ~olleH
+        console.log(hellow)
+        console.log(hello.split("").reverse().join("/"));
+    </script>
+</body>
+</html>

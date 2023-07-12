@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //for of
+         let fruit = ["apple", "banana", "ornage", "grape"]
+        for(let i=0; i<fruit.length; i++ ) {
+            console.log(fruit[i]);
+        }
+        for (let f of fruit) {
+            console.log(f);
+        }
+        for(변수선언 of 배열) {
+
+        }
+
+
+        let fruitss = ["apple", "banana", "ornage", "grape"]
+        //for each
+        //함수의 매개변수로 함수를 받는다
+        fruitss.forEach(function (data, index, arr){
+            console.log("data", data);
+            console.log("index", index);
+            console.log("arr", arr);
+        })
+        fruitss.forEach((data, index, arr) => {
+            console.log("data", data);
+            console.log("index", index);
+            console.log("arr", arr);
+        })
+        let fruits = ["사과", "바나나", "오렌지"]
+        fruits.forEach(function(fruit, i, arr) {
+            console.log(fruit, i, arr)
+        })
+    </script>
+</body>
+</html>

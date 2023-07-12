@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="number1" placeholder="값1">
+    <input type="text" id="number2" placeholder="값2">
+    <input type="text" id="op" placeholder="연산자">
+    <input type="text" id="result" placeholder="결과값">
+    <button onclick="calculate()">계산하기</button>
+    <button onclick="">초기화</button>
+    
+    <script>
+        function calculate() {
+            let num1 = document.getElementById("number1").value;
+            let num2 = document.getElementById("number2").value;
+            let op = document.getElementById("op").value;
+            let result = 0;
+            switch(op) {
+                case "+":
+                    result = Number(num1) + Number(num2);
+                    break;
+                case "-":
+                    result = Number(num1) - Number(num2);
+                    break;
+            }
+            document.getElementById("result").value = result
+        }
+        
+    </script>
+</body>
+</html>
