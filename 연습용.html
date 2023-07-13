@@ -4,44 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <style>
-        .box {
-        width:100px;
-        height:100px;
-        }
-        .red {
-            background-color: red;
-        }
-        .orange {
-            background-color: orange;
-        }
-        .yellow {
-            background-color: yellow;
-        }
     </style>
 </head>
 <body>
-
-    <div id="red" class="box red">
-        <span>빨간</span>
-        <span>상자</span>
-    </div>
-    <div id="orange" class="box orange"></div>
-    <div class="box yellow"></div>
-    <button Type="button" onclick="orangeToggle()">깜빡 깜빡</button>
+    <button type="button">버튼</button>
+    <input type="password" id="pw" name="password">
+    <input type="password" id="pw_check" name="password">
+    
     
     <script>
-        function orangeToggle () {
-            let orangeBox = document.getElementById("orange")
-            if (orangeBox.classList.contains("orange")) {
-                orangeBox.classList.remove("orange")
-            } else {
-                orangeBox.classList.add("orange")
-            }
-        }
+       let button = document.querySelector("button")
+       button.addEventListener("click", alal)
+       function alal() {
+        alert("dd")
+       } 
+
+       let input = document.querySelector("#pw")
+       input.addEventListener("keyup", (e) => {
+        if(e.key === "e") {
             
-    
+            alert("ㅎㅇ")
+        }
+       })
+
+       let aa = document.querySelector("#pw_check")
+       aa.addEventListener("change", (e) => {
+        console.log(input.value, aa.value)
+        if (input.value == aa.value) {
+            alert("같다")
+        } else {
+            alert("다르다")
+        }
+       })
+
     </script>
-    
 </body>
 </html>

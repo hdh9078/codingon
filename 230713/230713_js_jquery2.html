@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: palegreen;
+            transition: 1s;
+            color:white;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+    
+    <button onclick="fn3()">요소탐색</button>
+    
+    
+    <script>
+        function fn3 () {
+            //console.log($(".container").children().removeClass("red"))
+            console.log($(".red").prevAll(".orange"))//선택 요소 이전의 형제 요소
+        
+        }
+    </script>
+    
+</body>
+</html>

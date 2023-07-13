@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: palegreen;
+            transition: 1s;
+            color:white;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+    </style>
+
+</head>
+<body>
+<input type="text" name="id" class="id" id="id">
+<button onclick="submitt()">바껴라</button>
+<button onclick="btn2()">삭제</button>
+
+<div></div>
+<div></div>
+
+
+
+
+
+
+    <script>
+
+        //$("input").val("aaaa") // input태그 전체
+        
+        //$("선택자").함수();
+        function submitt() {
+            // let valueJQeury = $("#id").val()
+            // let valuejs = document.getElementById("id").value
+            // console.log(valueJQeury, valuejs)
+
+            // document.getElementById("id").value ="aaa"
+            // $("#id").val("aaa");
+
+            // css변경
+            //$("div").css("background-color", "blue")
+            //$("div").css("border-radius", "20px")
+
+            // attr함수 속성변경
+            //$("input").attr("placeholder", "아이디를 입력")
+       
+       
+            // text 함수 text변경
+            //$("div").text("안녕?")
+        
+            //html함수 html변경
+            //$("div").html("<p>hi</p>")
+
+            //append 함수 appendchild는 없다
+            //$("div").append(`<h1>안녕</h1>`)
+
+            //prepend 함수 부모 요소의 첫번째 자식으로
+            //$("div").prepend(`<h1>안녕</h1>`)
+            //after 
+            //$("div").after(`<h1>안녕</h1>`)
+            //before
+            //$("div").before(`<h1>안녕</h1>`)
+
+            //remove 함수
+            //$("div").remove()
+            //empty 내용을 비운다
+            //$("div").empty()
+
+            //addClass 함수 특정class추가 선택자에 포함된 모든 것 선택(div전체)
+            //$("div").addClass("red")
+
+            
+        }
+        function btn2() {
+            //removeClass 함수
+            //$("div").removeClass("red")
+
+            //hasClass div에 red가 있는지
+            console.log($("div").hasClass("red"))
+        
+            //toggleClass 함수
+            $("div").toggleClass("red")
+        }
+        
+    </script>
+</body>
+</html>

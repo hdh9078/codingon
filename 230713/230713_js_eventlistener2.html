@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button">버튼</button>
+    <input type="password" id="pw" name="password" placeholder="비밀번호">
+    <input type="password" id="pw_check" name="password" placeholder="비밀번호">
+    <div style="width:100px; height:100px; transition: 1s; background-color: red;"></div>
+
+    <script>
+        let button = document.querySelector("button")
+        button.addEventListener("click", function() {
+            alert("dd")
+        })
+
+        let input = document.getElementById("pw")
+        input.addEventListener("keyup", (e)=>{
+            if(e.key == "Enter") {
+                alert("로그인")
+            }
+        })
+
+
+        let aa = document.getElementById("pw_check")
+        aa.addEventListener("change", (e)=>{
+           if (input.value == aa.value) {
+            alert("같다")
+           } else {
+            alert("다르다")
+           }
+        })
+
+        window.addEventListener("load", () => {
+            let div = document.querySelector("div");
+            div.style.marginLeft = "100px"
+        })//page가 로드 되었을때 함수 실행
+
+        window.addEventListener("resize", () => {
+            if(window.innerWidth >= 400) {
+                console.log("크다")
+            }
+        })//화면 사이즈 변화
+
+        
+
+
+    </script>
+</body>
+</html>

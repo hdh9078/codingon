@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <style>
+        tr, th, td {
+            width:100px;
+            height:100px;
+        }
+        td:first-child {
+            color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+        날짜:
+        <input class="date" id="date">
+    </div>
+    <div>
+        내용:
+        <input class="comment">
+    </div>
+    <button type="button" onclick="sche()">작성</button>
+    <table border="1", cellspacing="0">
+        <h1 >2023년 7월</h1>
+        <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td></td>
+            
+        </tr>
+    </table>
+    <script>
+            let td = null;
+            $("td").on("click", function() {
+                td = this;
+                let date = $(this).text()
+                $("#date").val(date)
+            })
+        
+            function sche() {
+                //내용가져오기
+                const content = $(".comment").val()
+                const date = $(".date").val()
+                //모든 td를 가져오고 td중에서 text가 date와 같은 것을 찾는다
+                const tdList = $("td")
+                for (let i = 0; i<tdList.length; i++) {
+                    const td = tdList[i]
+                    if(td.innerText === date) {
+                        td.append(content)    
+                    }
+                }
+                //let comment = $(this).text()//input value
+                //td에 append하는 코드
+            }
+    
+    
+    </script>
+</body>
+</html>
