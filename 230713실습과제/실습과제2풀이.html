@@ -38,13 +38,21 @@
     
     
     <script>
-        function switchColor(){
+        function switchColor() {
             if($(".box").hasClass("red")) {
-                $(".box").swtchClass("red", "orange", 500)
-            } else if ($(".box").hasClass("orange")) {
-                $(".box").swtchClass("orange", "yellow", 500)
+                $(".box").switchClass("red", "orange", 500)
+            } else if($(".box").hasClass("orange")) {
+                $(".box").switchClass("orange", "yellow", 500)
+            } else if($(".box").hasClass("yellow")) {
+                $(".box").switchClass("yellow", "green", 500)
+            } else if($(".box").hasClass("green")) {
+                $(".box").switchClass("green", "blue", 500)
+            } else if($(".box").hasClass("blue")) {
+                $(".box").switchClass("blue", "purple", 500)
+            } else if($(".box").hasClass("purple")) {
+                $(".box").switchClass("purple", "red", 500)
             }
-        }
+       }
 
         const colors = ["red", "orange", "yellow", "green", "blue", "purple"]
         let num = 0;

@@ -104,7 +104,7 @@
                 const date = $(".date").val()
                 //모든 td를 가져오고 td중에서 text가 date와 같은 것을 찾는다
                 const tdList = $("td")
-                for (let i = 0; i<tdList.length; i++) {
+                for (let i = 0; i < tdList.length; i++) {
                     const td = tdList[i]
                     if(td.innerText === date) {
                         td.append(content)    

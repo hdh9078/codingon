@@ -7,38 +7,63 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <style>
+        .box {
+            width:100px;
+            height:100px;
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .purple {
+            background-color: purple;
+        }
     </style>
 </head>
 <body>
-    <button type="button">버튼</button>
-    <input type="password" id="pw" name="password">
-    <input type="password" id="pw_check" name="password">
     
+    <div class="box red" onclick="switchColor2()"></div>
     
+
+
     <script>
-       let button = document.querySelector("button")
-       button.addEventListener("click", alal)
-       function alal() {
-        alert("dd")
-       } 
-
-       let input = document.querySelector("#pw")
-       input.addEventListener("keyup", (e) => {
-        if(e.key === "e") {
-            
-            alert("ㅎㅇ")
+        function switchColor() {
+            if($(".box").hasClass("red")) {
+                $(".box").switchClass("red", "orange", 500)
+            } else if($(".box").hasClass("orange")) {
+                $(".box").switchClass("orange", "yellow", 500)
+            } else if($(".box").hasClass("yellow")) {
+                $(".box").switchClass("yellow", "green", 500)
+            } else if($(".box").hasClass("green")) {
+                $(".box").switchClass("green", "blue", 500)
+            } else if($(".box").hasClass("blue")) {
+                $(".box").switchClass("blue", "purple",)
+            } else if($(".box").hasClass("purple")) {
+                $(".box").switchClass("purple", "red", 500)
+            }
+       }
+        const color = ["red", "orange", "yellow", "green", "blue", "purple"]
+        let num = 0;
+        function switchColor2 () {
+            $(".box").switchClass(color[num], color[num+1])
+            num++;
+            if(num === color.length-1) num = 0;
+            console.log(num)
         }
-       })
 
-       let aa = document.querySelector("#pw_check")
-       aa.addEventListener("change", (e) => {
-        console.log(input.value, aa.value)
-        if (input.value == aa.value) {
-            alert("같다")
-        } else {
-            alert("다르다")
-        }
-       })
 
     </script>
 </body>
