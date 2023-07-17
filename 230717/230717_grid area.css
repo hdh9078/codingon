@@ -1,0 +1,48 @@
+.container {
+    display: grid;
+    height: 500px;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    grid-template-areas: 
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    grid-area: header;
+    background-color: red;
+}
+
+.orange {
+    grid-area: nav;
+    background-color: orange;
+}
+
+.yellow {
+    grid-area: main;
+    background-color: yellow;
+}
+
+.green {
+    grid-area: aside;
+    background-color: green;
+}
+
+.blue {
+    grid-area: footer;
+    background-color: blue;
+}
+
+/* .navy {
+    background-color: navy;
+}
+
+.purple {
+    background-color: purple;
+} */

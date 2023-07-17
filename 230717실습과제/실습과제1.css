@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    width: 700px;
+    height: 300px;
+    grid-template-columns: repeat(5, 90px);
+    grid-template-rows: repeat(9, 90px);
+    
+}
+.red {
+    grid-column: 1/ 9;
+    background-color: red;
+    text-align: center;
+}
+.orange {
+    grid-row:2/4;
+    background-color: #f3722c;
+}
+
+.yellow {
+    grid-column: 2/8;
+    grid-row:2/3;
+    background-color: #f9c74f;
+}
+
+.green {
+    grid-column: 2/5;
+    
+    background-color: orange;
+}
+
+.blue {
+    grid-column: 5/8;
+    background-color: yellowgreen;
+}
+.navy {
+    grid-row: 2/4;
+    background-color: darkcyan;
+}
+.purple {
+    grid-column: 1/9;
+    background-color: blue;
+}

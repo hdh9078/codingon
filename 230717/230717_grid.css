@@ -1,0 +1,53 @@
+.container {
+    display: grid;
+    height: 500px;
+    /* grid-template-columns: repeat(3, minmax(100px, auto));열의 길이 */
+    /* grid-template-rows: repeat(3, 1fr); 행의 길이 */
+    grid-template-columns: repeat(3, 200px); /*열의 길이*/
+    grid-template-rows: repeat(3, 200px);
+    /* gap: 20px; */
+    /* row-gap: 20px;
+    column-gap: 20px; */
+    /* justify-items: center; 각 grid내에서 정렬한다 item요소가 존재할 수 있는
+    align-items: center; 각 grid내에서 정렬
+    place-items: end center;  justify-items와align-items를 합 */
+    /* justify-content: center;
+    align-content: center;
+    place-content: center; container영역 내에서 부모요소 자체를 통채로 정렬 */
+}
+
+.item {
+    width:100px;
+    height:100px;
+}
+.red {
+    
+    background-color: red;
+    /* grid-column: 1 / span 3; */
+    /* grid-column: auto / span 3; */
+    /* place-self: center; */
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
+}
+.orange {
+    background-color: orange;
+    /* grid-row: auto / span 2; */
+    
+}
+.yellow {
+    background-color: yellow;
+    
+}
+.green {
+    background-color: green;
+    
+}
+.blue {
+    background-color: blue;
+}
+.navy {
+    background-color: navy;
+}
+.purple {
+    background-color: purple;
+}
