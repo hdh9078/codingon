@@ -20,6 +20,7 @@
 
       ul {
         display: flex;
+        justify-content: center;
         margin: 0;
         padding: 0;
         list-style: none;
@@ -36,43 +37,51 @@
       /* 768px 보다 클때의 header */
       header .inner {
         display: flex;
+        position: relative;
         justify-content: center;
         background-color: lightblue;
         height: 100%;
+        
       }
 
       /* LOGO */
       header .inner .logo {
         position: absolute;
         left: 70px;
-        top:25px;
+        top: 30px;
         color: white;
         font-size: 30px;
+        
       }
 
       header .inner .menu {
-       align-items: center;
+        align-items: center;
+        
       }
 
       header .inner .menu li {
         margin: 5px;
-        font-weight: bolder;
+        font-weight: bold;
+        text-align: center;
       }
 
       /* 미디어 쿼리 작성 768px 이하일 때  */
       @media screen and (max-width:768px) {
         header .inner .logo {
-          padding-top: 60px;
-          position: static;
-          text-align: center;
+            padding-top: 20px;
+            position: static;
+            text-align: center;
+            
         }
         header .inner .menu {
-          flex-direction: column;
-          background-color: rgb(193, 241, 249);
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(210, 237, 246);   
         }
         header .inner {
           flex-direction: column;
         }
+        
       }
     </style>
   </head>

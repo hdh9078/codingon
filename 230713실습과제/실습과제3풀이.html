@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <style>
+        td {
+            width:100px;
+            height:100px;
+            vertical-align: top;
+        }
+        td:first-child {
+            color: red;
+        }
+        td:last-child {
+            color: blue;
+        }
+        
+        /* tr > td:first-child > p,
+        tr > th:first-child{
+            color: red;
+        }
+        tr > td:last-child > p,
+        tr > th:last-child{
+            color: blue;
+        }
+        td > p:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        } */
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+        날짜:
+        <input class="date" id="date">
+    </div>
+    <div>
+        내용:
+        <input class="comment" id="comment">
+    </div>
+    <button type="button">작성</button>
+    <table border="1", cellspacing="0">
+        <h1 >2023년 7월</h1>
+        <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><p>1</p></td>
+            <td><p>2</p></td>
+        </tr>
+        <tr>
+            <td><p>3</p></td>
+            <td><p>4</p></td>
+            <td><p>5</p></td>
+            <td><p>6</p></td>
+            <td><p>7</p></td>
+            <td><p>8</p></td>
+            <td><p>9</p></td>
+        </tr>
+        <tr>
+            <td><p>10</p></td>
+            <td><p>11</p></td>
+            <td><p>12</p></td>
+            <td><p>13</p></td>
+            <td><p>14</p></td>
+            <td><p>15</p></td>
+            <td><p>16</p></td>
+        </tr>
+        <tr>
+            <td><p>17</p></td>
+            <td><p>18</p></td>
+            <td><p>19</p></td>
+            <td><p>20</p></td>
+            <td><p>21</p></td>
+            <td><p>22</p></td>
+            <td><p>23</p></td>
+        </tr>
+        <tr>
+            <td><p>24</p></td>
+            <td><p>25</p></td>
+            <td><p>26</p></td>
+            <td><p>27</p></td>
+            <td><p>28</p></td>
+            <td><p>29</p></td>
+            <td><p>30</p></td>
+        </tr>
+        <tr>
+            <td><p>31</p></td>
+            <td></td>
+            
+        </tr>
+    </table>
+    <script>
+            let td = null;
+            $("td > p").on("click", function() {
+                //console.log(this) // 내가 선택한 요소 console.log(e.currenTarget)
+                td=this;
+                //1.클릭한 요소의 날짜
+                let date = $(this).text()
+                //2. input#date 선택해서 1번 값 넣기
+                $("#date").val(date)
+            })
+
+            $("button").on("click", function() {
+                let content = $("#content").val()
+                $(td).parent().append(`<div>${content}</div>`)
+                
+            })
+    
+    
+    </script>
+</body>
+</html>
