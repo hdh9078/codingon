@@ -14,7 +14,7 @@ const server = http.createServer(function (req, res) {
 
     //파일전송
     try {
-        const data = fs.readFileSync("./index.html");
+        const data = fs.readFileSync("./index.html"); 
         res.writeHead(200)
         res.end(data)
     } catch (error) {
