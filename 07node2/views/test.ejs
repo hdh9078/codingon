@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <h4><%= name %></h4>
+    <h4>Hello Ejs</h4>
+    <ul class="test">
+        <% for( var i = 0; i < 5; i++) { %>
+        <li>안녕</li>
+        <% } %>
+        <img src="public/image/캡처.png"/>
+        </ul>
+    <div>
+        <% for( let i = number; i < number.length; i++) { %>
+            <% console.log(`${number}단`) %>
+            <% for(let j = 1; j < 10; J++ ) { %>
+                <% console.log(`${number}x${j} = ${number*j}`) %>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html>
