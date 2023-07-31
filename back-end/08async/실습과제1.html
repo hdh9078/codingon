@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function color1() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let result = document.body.style.backgroundColor = "red"
+                    resolve(result)
+                }, 1000)
+            })
+        }
+        function color2() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let result = document.body.style.backgroundColor = "orange"
+                    resolve(result)
+                }, 1000)
+            })
+        }
+        function color3() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let result = document.body.style.backgroundColor = "yellow"
+                    resolve(result)
+                }, 1000)
+            })
+        }
+        function color4() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let result = document.body.style.backgroundColor = "green"
+                    resolve(result)
+                }, 1000)
+            })
+        }
+        function color5() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let result = document.body.style.backgroundColor = "blue"
+                    resolve(result)
+                }, 1000)
+            })
+        }
+        color1().then( (res) => {
+            return color2(res);
+        })
+        .then( (res) => {
+            return color3(res);
+        })
+        .then( (res) => {
+            return color4(res);
+        })
+        .then( (res) => {
+            return color5(res);
+        })
+        
+    </script>
+</body>
+</html>

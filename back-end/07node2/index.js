@@ -14,8 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/kdt", (req, res) => {
-    // res.render("test", {name:"Dongha"});
-    res.render("실습과제8", {number:[1, 2, 3, 4, 5, 6 ,7 ,8, 9]})//구구단
+    res.render("test", {name:"Dongha"})//구구단
 });
 
 app.get("/gugu", (req, res) => {

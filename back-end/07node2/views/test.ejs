@@ -15,13 +15,12 @@
         <% } %>
         <img src="public/image/캡처.png"/>
         </ul>
-    <div>
-        <% for( let i = number; i < number.length; i++) { %>
-            <% console.log(`${number}단`) %>
-            <% for(let j = 1; j < 10; J++ ) { %>
-                <% console.log(`${number}x${j} = ${number*j}`) %>
-            <% } %>
-        <% } %>
-    </div>
+        <% for(let i =2; i < 10; i++) {%> 
+            <div><%=`${i}단` %></div>
+            <%for(let j = 1; j <=9; j++) {%>
+                <div><%= `${i}x${j} = ${i*j}` %></div>
+            <%}%>
+        <%}%>
+    
 </body>
 </html>
