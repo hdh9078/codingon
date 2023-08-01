@@ -8,87 +8,33 @@
       src="https://kit.fontawesome.com/837ff3adc1.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      :root {
-        --nav-height-lg: 100px;
-        --nav-height-sm: 60px;
-      }
-
-      body {
-        margin: 0;
-      }
-
-      ul {
-        display: flex;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      /* HEADER */
-      header {
-        width: 100%;
-        height: var(--nav-height-lg);
-        z-index: 100;
-        /* position: fixed; */
-      }
-
-      /* 768px 보다 클때의 header */
-      header .inner {
-        display: flex;
-        justify-content: center;
-        background-color: lightblue;
-        height: 100%;
-      }
-
-      /* LOGO */
-      header .inner .logo {
-        position: absolute;
-        left: 70px;
-        top:25px;
-        color: white;
-        font-size: 30px;
-      }
-
-      header .inner .menu {
-       align-items: center;
-      }
-
-      header .inner .menu li {
-        margin: 5px;
-        font-weight: bolder;
-      }
-
-      /* 미디어 쿼리 작성 768px 이하일 때  */
-      @media screen and (max-width:768px) {
-        header .inner .logo {
-          padding-top: 60px;
-          position: static;
-          text-align: center;
-        }
-        header .inner .menu {
-          flex-direction: column;
-          background-color: rgb(193, 241, 249);
-        }
-        header .inner {
-          flex-direction: column;
-        }
-      }
-    </style>
   </head>
   <body>
-    <header>
-      <div class="inner">
-        <div class="logo">
-          <i class="fa-solid fa-igloo"></i>
-        </div>
-        <ul class="menu">
-          <li>메뉴1</li>
-          <li>메뉴2</li>
-          <li>메뉴3</li>
-          <li>메뉴4</li>
-        </ul>
-      </div>
-    </header>
+    <script>
+      function goMart() {
+        console.log("dd")
+      };
+      function pick() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("rr")
+            product="dd"
+            price=10000
+          }, 1000);
+        })
+      };
+
+      function pay () {
+        console.log(`상품명 ${product}, 가격: ${price}`)
+      };
+
+      let product;
+      let price;
+      goMart();
+      pick().then(pay)
+
+
+
+    </script>>
   </body>
 </html>
