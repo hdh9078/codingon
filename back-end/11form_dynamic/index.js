@@ -18,7 +18,7 @@ app.get("/", (req,res) => {
 //ajax
 app.get("/ajax", (req,res) => {
     console.log("back", req.query);
-    res.send(req.query);//이거 왜 해주는지
+    res.send(req.query);
 });
 app.post("/ajax", (req,res) => {
     console.log("back", req.body);
