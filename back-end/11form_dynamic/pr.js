@@ -21,7 +21,13 @@ app.get("/axios", (req, res) => {
     res.send(req.query);
 });
 app.post("/axios", (req, res) => {
-    res.send(req.body);
+    const id = "hdh";
+    const pw ="1234";
+    if(id === req.body.id && pw === req.body.pw) {
+        res.send({result:true, userInfo: req.body});
+    } else {
+        res.send({result:false, userInfo: null});
+    }
 });
 
 app.listen(PORT, () => {

@@ -18,10 +18,8 @@
 
     <script>
         
-    
+        const resultBox = document.querySelector(".result");
         function axiosPost() {
-            const resultBox = document.querySelector(".result");
-            console.log("axios post");
             const form = document.forms["register"];
             const data = {
                 id: form.id.value,
@@ -32,9 +30,14 @@
                 url: "/axios",
                 data,
             }).then((res) => {
-                const {id, pw} = res.data;
-                resultBox.textContent = `로그인에 성공했습니다`
-                resultBox.style.color = "purple";
+                const {result, userInfo} = res.data;
+                if(result) {
+                    resultBox.textContent = `로그인에 성공했습니다 ${userInfo.id}`
+                    resultBox.style.color = "blue";
+                }else {
+                    resultBox.textContent = "아이디 또는 패스워드가 틀렸습니다."
+                    resultBox.style.color = "red";
+                }
             })
            
         }
