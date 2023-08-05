@@ -28,7 +28,7 @@ const uploadDetail = multer({
             done(null, "uploads/");//경로지정
         },
         filename(req, file, done) {
-            file.originalname = Buffer.from(file.originalname, "latin1").toString("utf8");
+            file.originalname = Buffer.from(file.originalname, "latin1").toString("utf8");//파일명한글로나오게
             const ext = path.extname(file.originalname);
             done(null, path.basename(file.originalname, ext) + Date.now() + ext);
         },
