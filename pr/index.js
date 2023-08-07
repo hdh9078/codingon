@@ -10,23 +10,31 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
+const uploadDetail = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, "uploads/")
+        },
+        filename(req, file, done) {
+            file.originalname = Buffer.from(file.originalname, "latin1").toString("utf8");
+            const ext = path.extname(file.originalname);
+            done(null, req.body.userId + ext);
+        },
+    }),
+    limits: {fileSize: 10* 1024 * 1024}
+})
+
 app.get("/", (req, res) => {
     res.render("index");
 });
-app.get("/axios", (req, res) => {
-    res.send(req.query);
-})
-app.get("/log", (req, res) => {
-    res.render("index2");
-})
-app.post("/axios", (req, res) => {
-    const id ="hdh";
-    const pw = "123"
-    if (id === req.body.id && pw ===req.body.pw) {
-        res.send({result:true, userInfo: req.body})
-    } else {
-        res.send({result:false, userInfo: null})
-    }
+
+app.post("/result", uploadDetail.single("profile"), (req,res) => {
+    res.render("result", {
+        userInfo: req.body,
+        profile: req.file.path
+    })
 })
 
 
