@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -11,14 +12,30 @@
             <legend>로그인</legend>
             <input type="text" id="userid">아이디<br>
             <input type="password" id="pw">비밀번호<br>
-            <input type="text" id="nickname">이름<br>
             <button type="button" onclick="login()">로그인</button>
         </fieldset>
     </form>
 
     <script>
-        function login () {
-            
+        function login() {
+            const form = document.forms["form-login"];
+            axios({
+                method: "post",
+                url: "/user/signin",
+                data: {
+                    userid: form.userid.value,
+                    pw: form.pw.value,
+                }
+            }).then((res) => {
+                console.log("res", res);
+                if(res.data.result) {
+                    alert("로그인이 되었습니다")
+                    window.location.href = "/user/profile"
+                } else {
+                    alert("아이디나 비밀번호가 일치하지 않습니다.")
+                    window.location.href = "/user/signin"
+                }
+            })
         }
     </script>
 </body>

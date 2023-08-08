@@ -29,3 +29,36 @@ exports.post_signin = (data, callback) => {
         callback(rows);
     });
 };
+
+exports.get_profile = (id, callback) => {
+    const query = `SELECT * FROM user WHERE id='${id}'`;
+    conn.query(query, (err, rows) => {
+        console.log("profile", rows);
+        callback(rows);
+    })
+}
+
+exports.patchUser = (data, callback) => {
+    const query = `UPDATE user SET name="${data.name}", userid="${data.userid}"  WHERE id=${data.id}`;
+    console.log(data)
+    conn.query(query, (err, rows) => {
+        console.log("rows", rows);
+        if(err) {
+            console.log(err);
+            return;
+        }
+        callback();
+    });
+};
+
+exports.deleteUser = (data, callback) => {
+    const query = `DELETE FROM user WHERE id=${data.id}`;
+    conn.query(query, (err, rows) => {
+        if(err) {
+            console.log(err);
+            res.send({result: false});
+            return;
+        }
+        callback();
+    });
+}

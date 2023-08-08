@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="infor-form">
+        <fieldset>
+            <legend>정보</legend>
+            <input value="<%= user.userid %>" name="id">
+            <input value="<%= user.name %>" name="name">
+            <button type="button" onclick="modify()">수정</button>
+            <button type="button" onclick="deleteUser()">삭제</button>
+        </fieldset>
+    </form>
+    <script>
+        function modify(id) {
+            const form = document.forms["infor-form"];
+            axios({
+                method: "post",
+                url: "/user/profile/edit",
+                data: {
+                    id: "<%= user.id %>",
+                    name: form.name.value,
+                    userid: form.id.value,
+                }
+            }).then((res) => {
+                    console.log("res", res);
+                    if (res.data.result) {
+                        alert("수정이 완료되었습니다.")
+                        
+                    }
+            })
+        };
+
+        function deleteUser(id) {
+            if(!confirm('삭제하시겠습니까?')) {
+                return
+            }
+            axios({
+                method: "delete",
+                url: "/user/profile/delete",
+                data: {
+                    id: "<%= user.id %>",
+                }
+            }).then((res) => {
+                if(res.data.result) {
+                    window.location.reload();
+                }
+            })
+        }
+    </script>
+</body>
+</html>
