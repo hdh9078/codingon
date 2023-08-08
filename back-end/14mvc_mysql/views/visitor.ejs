@@ -29,11 +29,11 @@
         <tbody>
             <% for(let i = 0; i < data.length; i++) { %>
                 <tr id="tr_<%= data[i].id%>">
-                    <td><%= data[i].id%></td>
+                    <td><a href="/visitor/get?id=<%= data[i].id %>"><%= data[i].id%></a></td>
                     <td><%= data[i].name%></td>
                     <td><%= data[i].comment%></td>
-                    <td><button type="button">수정</button></td>
-                    <td><button type="button">삭제</button></td>
+                    <td><button type="button" onclick="editVisitor('<%= data[i].id%>')">수정</button></td>
+                    <td><button type="button" onclick="deleteVisitor('<%= data[i].id%>')">삭제</button></td>
                 </tr>
             <% } %>
         </tbody>
@@ -63,6 +63,41 @@
                 body.insertAdjacentHTML("beforeend", html);//text를 dom에 넣을때 사용 //beforeend tbody안에 요소중 가장 마지막요소에 추가된다
             })
         };
+
+        function editVisitor(id) {
+            const form = document.forms["visitor-form"];
+            axios({
+                method: "patch",
+                url: "/visitor/edit",
+                data: {
+                    id: Number(id),
+                    name: form.name.value,
+                    comment: form.comment.value,
+                }
+            }).then((res) => {
+                    console.log("res", res);
+                    if (res.data.result) {
+                        window.location.reload();
+                    }
+            })
+        };
+
+        function deleteVisitor(id) {
+            if(!confirm('삭제하실?')) {
+                return
+            }
+            axios({
+                method: "delete",
+                url: "/visitor/delete",
+                data: {
+                    id: Number(id)
+                }
+            }).then((res) => {
+                if(res.data.result) {
+                    window.location.reload();
+                }
+            })
+        }
     </script>
 </body>
 </html>

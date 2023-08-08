@@ -11,16 +11,10 @@ app.use("/static", express.static(__dirname + "/static"));
 app.unsubscribe(express.urlencoded({extended:true}));
 app.use(express.json());
 
+const userRouter = require("./routes/user");
+app.use("/user", userRouter);
 
 
-// const indexRouter = require("./routes");
-// app.use("/", indexRouter);
-const visitorRouter = require("./routes/visitor");
-app.get("/", (req, res) => {
-    res.render("index");
-});
-
-app.use("/visitor", visitorRouter); //localhost:8000/visitor로 시작하는 것들
 
 app.use("*", (req,res) => {
     res.render("404");
