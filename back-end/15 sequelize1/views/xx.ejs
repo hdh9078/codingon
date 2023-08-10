@@ -12,7 +12,7 @@
             <legend>정보</legend>
             ID<input value="<%= user.userid %>" name="id">
             이름<input value="<%= user.name %>" name="name">
-            <button type="button" onclick="modify()">수정</button>
+            <button type="button" onclick="profileEdit()">수정</button>
             <button type="button" onclick="deleteUser()">삭제</button>
         </fieldset>
     </form>
@@ -36,25 +36,6 @@
                     }
             })
         };
-
-        function deleteUser(id) {
-            if(!confirm('삭제하시겠습니까?')) {
-                return
-            }
-            axios({
-                method: "delete",
-                url: "/user/profile/delete",
-                data: {
-                    id: Number(id),
-                }
-            }).then((res) => {
-                if(res.data.result) {
-                    alert("삭제가 완료되었습니다.")
-                    window.location.href="/user";
-                }
-            })
-        }
-
     </script>
 </body>
 </html>

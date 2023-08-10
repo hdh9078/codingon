@@ -40,7 +40,23 @@ exports.get_profile = (req, res) => {
     //유저정보를 ejs에 넘긴다.
 
     //ejs에서 유저정보를 통해 화면을 그린다.
-}
+};
+
+//
+// exports.post_profile = (req, res) => {
+//     User.post_profile(req.body, (result) => {
+//         if(result.length > 0) {
+//             res.render("profile", {data: result[0]})
+//         }
+//     })
+// }
+
+// 수정
+// exports.edit_profile = (req, res) => {
+//     User.edit_profile(req.body, () => {
+//         res.send({result:true});
+//     })
+// }
 
 exports.patchUser = (req,res) => {
     User.patchUser(req.body, () => {
@@ -49,7 +65,7 @@ exports.patchUser = (req,res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    User.deleteUser(req.body, () => {
+    User.deleteUser(req.body.id, () => {
         res.send({result: true});
     });
 };

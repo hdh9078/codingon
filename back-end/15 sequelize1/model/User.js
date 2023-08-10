@@ -30,37 +30,24 @@ exports.post_signin = (data, callback) => {
     });
 };
 
-exports.get_profile = (id, callback) => {
-    const query = `SELECT * FROM user WHERE id='${id}'`;
-    conn.query(query, (err, rows) => {
-        console.log("profile", rows);
-        callback(rows);
-    })
-}
-//
-// exports.post_profile = (data, callback) => {
-//     const query = `SELECT *FROM user WHERE userid='${data.userid}'`;
+// exports.get_profile = (id, callback) => {
+//     const query = `SELECT * FROM user WHERE id='${id}'`;
 //     conn.query(query, (err, rows) => {
+//         console.log("profile", rows);
 //         callback(rows);
 //     })
 // }
+//
+exports.post_profile = (data, callback) => {
+    const query = `SELECT *FROM user WHERE userid='${data.userid}'`;
+    conn.query(query, (err, rows) => {
+        callback(rows);
+    })
+}
 
 //수정
-// exports.edit_profile = (data, callback) => {
-//     const query = `UPDATE user SET name="${data.name}", userid="${data.userid}"  WHERE id=${data.id}`;
-//     conn.query(query, (err, rows) => {
-//         console.log("rows", rows);
-//         if(err) {
-//             console.log(err);
-//             return;
-//         }
-//         callback();
-//     });
-// }
-
-exports.patchUser = (data, callback) => {
+exports.edit_profile = (data, callback) => {
     const query = `UPDATE user SET name="${data.name}", userid="${data.userid}"  WHERE id=${data.id}`;
-    console.log(data)
     conn.query(query, (err, rows) => {
         console.log("rows", rows);
         if(err) {
@@ -69,7 +56,20 @@ exports.patchUser = (data, callback) => {
         }
         callback();
     });
-};
+}
+
+// exports.patchUser = (data, callback) => {
+//     const query = `UPDATE user SET name="${data.name}", userid="${data.userid}"  WHERE id=${data.id}`;
+//     console.log(data)
+//     conn.query(query, (err, rows) => {
+//         console.log("rows", rows);
+//         if(err) {
+//             console.log(err);
+//             return;
+//         }
+//         callback();
+//     });
+// };
 
 exports.deleteUser = (id, callback) => {
     const query = `DELETE FROM user WHERE id=${id}`;
