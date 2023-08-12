@@ -20,6 +20,12 @@ const UserModel = (sequelize) => {
             type: DataTypes.STRING(20),
             allowNull: false,
         },
+        
+    },
+    {
+        freezeTableName: true,
+        createdAt: false,
+        updatedAt: false,
     });
     return User;
 };
