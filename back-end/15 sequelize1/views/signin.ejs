@@ -37,8 +37,16 @@
                 if(res.data.result) {
                     alert("로그인이 되었습니다")
                     const form_profile = document.forms["form-profile"]
+                    console.log(form_profile)
                     form_profile.userid.value = form.userid.value
-                     form_profile.submit();
+                    form_profile.submit();
+                    // axios({
+                    //     method: "post",
+                    //     url: "/user/profile",
+                    //     data
+                    // }).then((res) => {
+                    //     console.log("res", res);
+                    // })
                     //window.location.href = "/user/profile"
                 } else {
                     alert("아이디나 비밀번호가 일치하지 않습니다.")

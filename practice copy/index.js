@@ -8,8 +8,12 @@ app.set("views", "./views");
 app.unsubscribe(express.urlencoded({extended:true}));
 app.use(express.json());
 
-const router = require("./routes");
-app.use("/", router);
+const visitorRouter = require("./routes/visitor");
+app.use("/", visitorRouter);
+
+app.use("*", (req,res) => {
+    res.render("404");
+});
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);

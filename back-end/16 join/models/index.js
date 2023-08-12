@@ -7,12 +7,17 @@ const db = {};
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 //모델
-db.Student = require("./Students")(sequelize);
+db.Student = require("./Student")(sequelize);
 db.Classes = require("./Classes")(sequelize);
+db.StudentProfile = require("./StudentProfile")(sequelize);
 
 //관계형성
-db.Student.hasMany(db.Classes, {foreignKey: "student_id"});
-db.Classes.belongsTo(db.Student, {foreignKey: "student_id"});
+//1:1 학생과 프로필
+db.Student.hasOne(db.StudentProfile);
+db.StudentProfile.belongsTo(db.Student);
+//1:다 학생과강의
+db.Student.hasMany(db.Classes); //{foreignKey: "student_id"}
+db.Classes.belongsTo(db.Student); //{foreignKey: "student_id"}
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

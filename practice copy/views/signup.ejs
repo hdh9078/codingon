@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="signup">
+        <fieldset>
+            <legend>회원가입</legend>
+            <input type="text" name="name">이름<br>
+            <input type="text" name="id">아이디<br>
+            <input type="password" name="pw">비밀번호<br>
+            <button type="button" onclick="signup()">회원가입</button>
+        </fieldset>
+    </form>
+    <br>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>이름</th>
+                <th>비밀번호</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < data.length; i++) { %>
+                <tr id="tr_<%= data[i].id%>">
+                    <td><a href="/user/signup?id=<%= data[i].id %>"><%= data[i].id%></a></td>
+                    <td><%= data[i].name%></td>
+                    <td><%= data[i].comment%></td>
+                    <td><button type="button" onclick="editVisitor('<%= data[i].id%>')">수정</button></td>
+                    <td><button type="button" onclick="deleteVisitor('<%= data[i].id%>')">삭제</button></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <script>
+        const body = document.querySelector("tbody");
+        function signup() {
+            console.log("strat")
+            const form = document.forms["signup"]
+            axios({
+                method: "post",
+                url: "/user/signup",
+                data: {
+                    name: form.name.value,
+                    userid:form.id.value,
+                    pw:form.pw.value
+                }
+            }).then((res) => {
+                const html = `
+                <tr id=tr_${res.data.id}>
+                    <td>${res.data.id}</td>
+                    <td>${res.data.name}</td>
+                    <td>${res.data.pw}</td>
+                    <td><button type="button">수정</button></td>
+                    <td><button type="button">삭제</button></td>
+                </tr>`;
+                body.insertAdjacentHTML("beforeend", html);
+            })
+        }
+    </script>
+</body>
+</html>

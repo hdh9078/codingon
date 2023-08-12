@@ -49,8 +49,8 @@ exports.post_profile = (req, res) => {
     //         res.render('profile', { data: result[0] });
     //     }
     // });
+    console.log("Req", req)
     const { userid } = req.body;
-    console.log(userid)
     User.findOne({
         where: { userid },
     }).then((data) => {
@@ -72,6 +72,7 @@ exports.delete_profile = (req, res) => {
     // User.delete_profile(req.body.id, () => {
     //     res.send({ result: true });
     // });
+    console.log(req.body)
     const { id } = req.body;
     User.destroy({ where: { id } }).then((result) => {
         console.log('destroy', result);

@@ -6,7 +6,10 @@ const db= require("./models");
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-// app.use(cookieParser());
+const bodyParser = require('body-parser');
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.unsubscribe(express.urlencoded({extended:true}));
 app.use(express.json());
 

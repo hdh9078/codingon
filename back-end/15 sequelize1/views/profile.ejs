@@ -12,11 +12,11 @@
     <br>
     <form name="form-profile">
         <input type="hidden" id="id" value="<%= data.id%>">
-        <input type="text" id="userid" value="<%= data.userid%>"><br>
+        <input type="text" id="userid" name="userid" value="<%= data?.userid%>"><br>
         <input type="text" id="pw" value="<%= data.pw%>"><br>
         <input type="text" id="nickname" value="<%= data.name%>"><br>
         <button type="button" onclick="profileEdit()">수정</button>
-        <button type="button" onclick="profileDelete()">삭제</button>
+        <button type="button" onclick="profileDelete('<%=data.id%>')">삭제</button>
     </form>
 
 
