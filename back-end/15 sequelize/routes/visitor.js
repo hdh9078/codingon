@@ -1,7 +1,6 @@
 const express = require("express");
 const controller = require("../controller/Cvisitor");
-const router = express();
-
+const router = express.Router();
 
 //get /visitor 방명록 전체보기
 router.get("/", controller.getVisitors);

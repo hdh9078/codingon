@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="form-login">
+        id<input name="id" type="text"><br>
+        password<input name="password" type="password"><br>
+        <button type="button" onclick="login()">로그인</button>
+        <button type="button">회원가입</button>
+    </form>
+
+    <script>
+        function login() {
+            const form = document.forms["form-login"];
+            const data  = {
+                id: form.id.value,
+                pw: form.password.value,
+            }
+            // console.log("login", data)
+            axios({
+                method: "post",
+                url: "/user/login",
+                data
+
+            }).then((res) => {
+                // console.log("res", res);
+                if(res.data.result) {
+                    alert("로그인이 되었습니다")
+                    window.location.href = "/user/cookie"
+                    
+                } else {
+                    alert("아이디나 비밀번호가 일치하지 않습니다.")
+                    window.location.href = "/user/cookie"
+                }
+            })
+        }
+    </script>
+</body>
+</html>
