@@ -4,7 +4,7 @@ const app = express();
 const PORT = 8000;
 const SECRET = 'y5c1n79bQ9LxMoiaIn4vb9u2WkomhviT';
 
-const userInfo = { id: 'kdt9', pw: '1234', name: '홍길동' };
+const userInfo = { id: 'kdt9', pw: '1234', name: '황동하' };
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
