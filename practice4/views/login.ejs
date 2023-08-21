@@ -7,6 +7,34 @@
     <title>Document</title>
 </head>
 <body>
-   
+   <form name="login-form">
+        <legned>로그인</legned><br>
+        아이디<input type="text" id="id"><br>
+        비밀번호<input type="password" id="pw"><br>
+        <button type="button" onclick="login()">로그인</button>
+   </form>
+
+   <script>
+        async function login() {
+            const form = document.forms["login-form"]
+            const data = {
+                userid: form.id.value,
+                pw: form.pw.value
+            };
+            const ho = await axios({
+                method: "post",
+                url: "/login",
+                data,
+            });
+            if(ho.data.result) {
+                alert("로그인이 완료되었습니다.");
+                document.location.href = "/"
+            } else {
+                alert("아이디나 비밀번호가 틀립니다.")
+                document.location.href = "/login"
+            }
+
+        }
+   </script>
 </body>
 </html>

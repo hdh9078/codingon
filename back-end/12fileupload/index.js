@@ -18,7 +18,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 
 //multer
 const upload = multer({
-    dest: "uploads/"//업로드 할 파일을 저장할 경로를 지정 파일 자동 생성
+    dest: "uploads/"//업로드 할 파일을 저장할 경로를 지정 파일 자동 생성(이름을 정할 수 없고, 확장자가 없으므로 불러 올 수 없다. // 잘 사용 안 함)
 });
 const uploadDetail = multer({
     //storage: 저장할 공간에 대한 정보
@@ -43,9 +43,9 @@ app.get("/", (req,res) => {
 
 //싱글
 app.post("/upload", uploadDetail.single("userfile"), (req,res) => {
-    console.log(req.file);
+    console.log(req.file);1
     console.log(req.body);
-})
+});
 
 //멀티(ver1)
 app.post("/upload/array", uploadDetail.array("userfiles"), (req, res) => {

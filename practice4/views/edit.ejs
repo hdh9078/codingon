@@ -7,6 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-     
+     <form name="edit-form">
+        <legend>회원가입</legend>
+        아이디<input type="text" id="userid"><br>
+        비밀번호<input type="password" id="pw"><br>
+        이름<input type="text" id="name"><br>
+        <button type="button" onclick="edit()">회원가입</button>
+     </form>
+
+     <script>
+        async function edit() {
+            const form = document.forms["edit-form"];
+            const data = {
+                userid: form.userid.value,
+                pw: form.pw.value,
+                name: form.name.value
+            };
+            const ho = await axios({
+                method: "post",
+                url: "/edit",
+                data,
+            });
+            if(ho.data.result) {
+                alert("회원가입축하");
+                document.location.href = "/login";
+            };
+        };
+     </script>
 </body>
 </html>

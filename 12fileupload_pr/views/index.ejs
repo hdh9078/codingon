@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <h1>동적파일업로드</h1>
+        <form onsubmit="fileupload(event)">
+            <input type="file" id="dynamic" multiple><br>
+            <input type="text" id="title"><br>
+            <button type="submit">업로드</button>
+        </form>
+        <br>
+        <div class="result"></div>
+        <script>
+            const resultBox = document.querySelector(".result");
+            async function fileupload(event) {
+                event.preventDefault();
+                console.log("file upload");
+                const title = document.querySelector("#title").value;
+                const file = document.querySelector("#dynamic");
+                
+                let formData = new FormData();
+                formData.append("title", title);
+                for (let i = 0; i < file.files.length; i++) {
+                    formData.append("dynamic", file.files[i]);
+                    console.log("qr", file.files[i]);
+                };
+                try{
+                    const res = await axios({
+                        method:"post",
+                        url: "/upload",
+                        data: formData,
+                        headers: {
+                            "Content-Type": "multipart/form-data",
+                        }
+                    });
+                    console.log("res", res);
+                    let dada = ``
+                    for (let i = 0; i < res.data.length; i++) {
+                        dada += `<img src=${res.data[i].path}>`
+                    };
+                    resultBox.innerHTML = dada;
+                } catch (error) {
+                    console.log(error);
+                };
+            };
+        </script>
+    </body>
+</html>
