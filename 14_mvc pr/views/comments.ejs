@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>전체 목록</h1>
+    <a href="/">홈으로 이동</a>
+    <ul>
+        <% for(let i = 0; i < lists.length; i++) { %>
+            <li id="li">
+                <b>이름:<%= lists[i].name %></b>
+                <b>성별:<%= lists[i].gender %></b>
+                <b>전공:<%= lists[i].major %></b>
+            </li>
+        <% } %>
+    </ul>
+    <h1>정보추가</h1>
+    <form name="register">
+        이름<input type="text" id="name"><br>
+        성별<input type="text" id="gender"><br>
+        전공<input type="text" id="major"><br>
+        <button type="button" onclick="qw()">추가</button>
+    </form>
+
+    <script>
+        
+        function qw() {
+            const form = document.forms["register"];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                major: form.major.value,
+            }
+            axios ({
+                method: "post",
+                url: "/register",
+                data,
+            }).then((res) => {
+                if(res.data.result) {
+                    document.location.reload();
+                }
+            })
+        };
+    </script>
+
+
+
+const form = document.forms["register"]
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+                major: form.major.value
+            }
+            axios({
+                method:"post",
+                url:"/register",
+                data
+            }).then((res) => {
+                if(res.data.result) {
+                    document.location.reload();
+                };
+            });
+</body>
+</html>
