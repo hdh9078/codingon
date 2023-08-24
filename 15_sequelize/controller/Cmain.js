@@ -1,6 +1,7 @@
 //const model = require('../model/Model');
 //models/index에서 index는 생략
 const { User } = require('../models');
+const bcrypt = require("bcrypt");
 
 ////////////////////////////////
 //GET
@@ -36,29 +37,52 @@ const buy = (req, res) => {};
 ///////////////////////////////
 //POST
 //회원가입
-const post_signup = (req, res) => {
-    // model.db_signup(req.body, () => {
-    //     res.json({ result: true });
-    // });
+// const post_signup = (req, res) => {
+//     // model.db_signup(req.body, () => {
+//     //     res.json({ result: true });
+//     // });
+//     const { userid, name, pw } = req.body;
+//     //create 데이터 생성
+//     //실습과제 - 비밀번호 암호화하여 저장
+//     User.create({ userid, name, pw }).then(() => {
+//         res.json({ result: true });
+//     });
+// };
+const post_signup = async (req, res) => {
     const { userid, name, pw } = req.body;
-    //create 데이터 생성
-    //실습과제 - 비밀번호 암호화하여 저장
-    User.create({ userid, name, pw }).then(() => {
+    const hashpw = bcyptPassword(pw);
+    const result = await User.create({ userid, name, pw:hashpw })
+    if(result) {
         res.json({ result: true });
-    });
+    };
 };
 //로그인
-const post_signin = (req, res) => {
-    model.db_signin(req.body, (result) => {
-        if (result.length > 0) {
-            res.json({ result: true, data: result[0] });
-        } else {
-            res.json({ result: false });
-        }
+// const post_signin = (req, res) => {
+//     model.db_signin(req.body, (result) => {
+//         if (result.length > 0) {
+//             res.json({ result: true, data: result[0] });
+//         } else {
+//             res.json({ result: false });
+//         }
+//     });
+//     //실습과제 - 로그인
+//     //step1 아이디를 찾아서 사용자 존재 유/무 체크
+//     //step2 입력된 비밀번호 암호화하여 기존 데이터와 비교
+// };
+const post_signin = async (req, res) => {
+    const {userid, pw} = req.body;
+    const result = await User.findOne({
+        where:{userid}
     });
-    //실습과제 - 로그인
-    //step1 아이디를 찾아서 사용자 존재 유/무 체크
-    //step2 입력된 비밀번호 암호화하여 기존 데이터와 비교
+    if(!result) {
+        res.json({result: false, message:"사용자가 존재하지 않습니다."});
+    }
+    const compare = comparePassword(pw, result.pw);
+    if(compare) {
+        res.json({result:true, data:result});
+    } else {
+        res.json({result:false, message:"비밀번호가 틀렸습니다."});
+    };
 };
 /////////////////////////////////////////
 //PATCH
@@ -76,6 +100,20 @@ const edit_profile = (req, res) => {
 /////////////////////////////////////
 //DELETE
 //회원탈퇴 destroy()
+const deleteUser = (req, res) => {
+    User.destroy({
+        where: {id: req.body.id}
+    }).then(() => {
+        res.json({result:true})
+    })
+}
+
+const bcyptPassword = (password) => {
+    return bcrypt.hashSync(password, 10);
+};
+const comparePassword = (password, dbPassword) => {
+    return bcrypt.compareSync(password, dbPassword)
+}
 
 module.exports = {
     main,
@@ -86,4 +124,5 @@ module.exports = {
     post_signup,
     post_signin,
     edit_profile,
+    deleteUser
 };
