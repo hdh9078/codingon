@@ -3,20 +3,34 @@
 const { User } = require('../models');
 const bcrypt = require("bcrypt");
 
-////////////////////////////////
+//쿠키설정
+const cookieConfig = {
+    httpOnly:true,
+    maxAge: 60 * 1000, //1분
+};
+
 //GET
 //메인페이지
 const main = (req, res) => {
+    console.log("cookie", req.cookies);//쿠키 요청이라 req.cookies
     res.render('index');
 };
 //회원가입페이지
 const signup = (req, res) => {
+    //쿠키생성
+    //res.cookie(쿠키이름, 쿠키값, 옵션객체)
+    res.cookie("testCookie", "signup", cookieConfig);//응답하는 쿠키라서 res.cookie 하여 쿠키 생성
     res.render('signup');
 };
 //로그인페이지
 const signin = (req, res) => {
-    res.render('signin');
-};
+    console.log(req.session.userInfo, req.sessionID);
+    if(req.session.userInfo) {
+        res.redirect(`/profile/${req.session.userInfo.id}`);
+    } else {
+        res.render('signin');
+    }
+}
 //회원정보 조회 페이지
 const profile = (req, res) => {
     console.log(req.params);
@@ -32,9 +46,7 @@ const profile = (req, res) => {
         res.render('profile', { data: result });
     });
 };
-const buy = (req, res) => {};
 
-///////////////////////////////
 //POST
 //회원가입
 // const post_signup = (req, res) => {
@@ -49,13 +61,14 @@ const buy = (req, res) => {};
 //     });
 // };
 const post_signup = async (req, res) => {
-    const { userid, name, pw } = req.body;
-    const hashpw = bcyptPassword(pw);
-    const result = await User.create({ userid, name, pw:hashpw })
-    if(result) {
-        res.json({ result: true });
-    };
-};
+        const { userid, name, pw } = req.body;
+        const hashpw = bcyptPassword(pw);
+        const result = await User.create({ userid, name, pw:hashpw })
+        if(result) {
+            res.json({ result: true });
+        };
+    }
+    
 //로그인
 // const post_signin = (req, res) => {
 //     model.db_signin(req.body, (result) => {
@@ -79,12 +92,13 @@ const post_signin = async (req, res) => {
     }
     const compare = comparePassword(pw, result.pw);
     if(compare) {
+        req.session.userInfo = {name: result.name, id: result.id}
         res.json({result:true, data:result});
     } else {
         res.json({result:false, message:"비밀번호가 틀렸습니다."});
     };
 };
-/////////////////////////////////////////
+
 //PATCH
 const edit_profile = (req, res) => {
     // model.db_profile_edit(req.body, () => {
@@ -97,7 +111,6 @@ const edit_profile = (req, res) => {
     });
 };
 
-/////////////////////////////////////
 //DELETE
 //회원탈퇴 destroy()
 const deleteUser = (req, res) => {
