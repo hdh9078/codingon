@@ -35,9 +35,8 @@ const upload = multer({storage, limits});
 
 //동적(비동기)파일
 app.post("/upload", upload.array("dynamic"), (req, res) => {
-    console.log("qw", req.files);
     res.send(req.files);
-});
+})
 
 
 

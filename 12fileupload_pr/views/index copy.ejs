@@ -18,32 +18,29 @@
         <div class="result"></div>
         <script>
            const resultBox = document.querySelector(".result");
-           async function fileupload(e) {
+           async function fileupload(event) {
+            event.preventDefault();
             const title = document.querySelector("#title").value;
             const file = document.querySelector("#dynamic");
             let formData = new FormData();
             formData.append("title", title);
-            for (let i = 0; i < file.files.length; i++) {
-                formData.append("dynamic", file.files[i])
+            for(let i = 0; i < file.files.length; i++) {
+                formData.append("dynamic", file.files[i]);
             }
-            try{
-                const res = await axios({
-                    method: "post",
-                    url: "/upload",
-                    data: formData,
-                    header: {
-                        "Content-Type": "multipart/form-data",
-                    }
-                });
-                let data = ``;
-                for (let i = 0; i < res.data.length; i++) {
-                    data += `<img src=${res.data[i].path}>`
-                };
-                resultBox.innerHTML = data;
-            } catch (error) {
-                console.log(error);
-            };
-        };
+            const res = await axios({
+                method: "post",
+                url: "/upload",
+                data: formData,
+                header: {
+                     "Content-Type": "multipart/form-data",
+                }
+            })
+            let data = ``
+            for(let i = 0;  i < res.data.length; i++) {
+                data += `<img src=${res.data[i].path}>`
+            }
+            resultBox.innerHTML = data;
+           }
         </script>
     </body>
 </html>

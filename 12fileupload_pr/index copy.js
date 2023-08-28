@@ -14,27 +14,26 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 //multer설정
 const storage = multer.diskStorage({
     destination: (req, file, done) => {
-        done(null, "uploads/");
+        done(null, "uploads/")
     },
-    filename: (req,file, done) => {
-        const ext = path.extname(file.originalname)
-        const newname = path.basename(file.originalname, ext) + Date.now() + ext;
-        done(null, newname)
+    filename: (req, file, done) => {
+        const ext = path.extname(file.originalname);
+        const newName = path.basename(file.originalname, ext) + Date.now() + ext;
+        done(null, newName);
     }
 });
 
 const limits = {
-    fileSize: 5 * 1024 * 1024
+    filesize: 5 * 1024 * 1024
 };
 
-const upload = multer({storage, limits})
-
-
-
+const upload = multer({storage, limits});
 
 
 //동적(비동기)파일
-
+app.post("/upload" , upload.array("dynamic"), (req, res) => {
+    res.send(req.files);
+})
 
 
 
