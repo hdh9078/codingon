@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+    <style>
+        div{
+            background-color:deepskyblue;
+            width:300px;
+            height: 415px;
+        }
+        #chat{
+            display: flex;
+            position: absolute;
+            bottom: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <ul></ul>
+    </div>
+    
+    <form id="chat">
+        <input type="text" id="message" placeholder="채팅내용"><br>
+        <button>채팅</button>
+        <button type="button" onclick="leave()">나가기</button>
+    </form>
+
+    <script>
+        const chatForm = document.querySelector("#chat");
+        const ul = document.querySelector("ul");
+        //클라이언트 소켓 연결
+        const socket = io();
+
+        //채팅방생성
+        const chatRoom = prompt("채팅방명을 입력하세요");
+        socket.emit("join", chatRoom);
+
+        //브라우저 접속 시 이벤트
+        socket.on("create", (res) => {
+            const li = document.createElement("li");
+            li.textContent = res;
+            ul.appendChild(li);
+        });
+        //서버에서 보내주는 값
+        socket.on("chat", (res, id) => {
+            const li = document.createElement("li");
+            console.log("id", id)
+            console.log("socket", socket)
+            li.textContent = res;
+            ul.appendChild(li);
+            ul.style.listStyle = "none"
+            ul.style.padding = 0;
+            if(id === socket.id) {
+                li.style.backgroundColor = "yellow"
+                li.style.display = "flex"
+                li.style.justifyContent = "flex-end"
+                li.style.width = "fit-content"
+                li.style.marginLeft = "auto"
+            } else {
+                li.style.backgroundColor = "green"
+                li.style.display = "flex"
+                li.style.justifyContent = "flex-start"
+                li.style.width = "fit-content"
+            }
+        });
+
+        //폼 이벤트
+        chatForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const msg = chatForm.querySelector("#message");
+            socket.emit("message", msg.value);
+            msg.value = "";
+        });
+        function leave() {
+            console.log("leave");
+            socket.emit("leave")
+        }
+    </script>
+</body>
+</html>

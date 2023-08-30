@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>Hello World!</div>
+    <ul></ul>
+    <form id="chat">
+        <button id="hello">hello</button>
+        <button id="study">study</button>
+        <button id="bye">bye</button>
+    </form>
+    <script>
+        const chatForm = document.querySelector("#chat");
+        const socket = io();
+        //이벤트생성
+        socket.emit("message", {name:"client", message:"Hello"}, (res) => {
+            console.log(res);
+        });
+        socket.on("backend_message", (arg, arg2, arg3) => {
+            console.log(arg);
+        });
+        //폼이벤트
+        chatForm.addEventListener("click", (event) => {
+            event.preventDefault();
+            document.querySelector("#hello").value = "hello";
+            const hello = chatForm.querySelector("#hello")
+            socket.emit("form_message", {hello:hello.value});
+        });
+        chatForm.addEventListener("click", (event) => {
+            event.preventDefault();
+            document.querySelector("#study").value = "study";
+            const study = chatForm.querySelector("#study");
+            socket.emit("form_message2", {study:study.value});
+        });
+        chatForm.addEventListener("click", (event) => {
+            event.preventDefault();
+            document.querySelector("#bye").value = "bye";
+            const bye = chatForm.querySelector("#bye");
+            socket.emit("form_message3",  {bye:bye.value});
+        });
+    </script>
+</body>
+</html>
