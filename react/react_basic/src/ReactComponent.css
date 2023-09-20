@@ -1,0 +1,73 @@
+.qqa {
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  top:70px;
+  left:20px;
+  background-color: red;
+  border-radius: 100px;
+  
+}
+.qqb {
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  top:90px;
+  left:90px;
+  background-color: blue;
+  border-radius: 100px;
+}
+.qqc {
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  top:130px;
+  left:120px;
+  background-color: yellow;
+  border-radius: 100px;
+  z-index: 3;
+}
+.qqd {
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  top:130px;
+  left:180px;
+  background-color: green;
+  border-radius: 100px;
+  z-index: 4;
+}
+.qqe {
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  top:130px;
+  left:260px;
+  background-color: purple;
+  border-radius: 100px;
+  z-index: 6;
+}
+.f {
+  position:absolute;
+  width: 30px;
+  height: 30px;
+  top:90px;
+  left:40px;
+  background-color: yellow;
+  border-radius: 100px;
+}
+.g {
+  position:absolute;
+  width: 10px;
+  height: 10px;
+  top:100px;
+  left:40px;
+  background-color: black;
+  border-radius: 100px;
+}
+.qww {
+  width:500px;
+  z-index: 5;
+  top: 130px;
+  position: relative;
+}
