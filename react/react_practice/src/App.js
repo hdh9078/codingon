@@ -13,6 +13,10 @@ import UseStatePrac4 from "./07UseState/UseStatePrac4";
 import UseStatePrac5 from "./07UseState/UseStatePrac5";
 import LifePrac1 from "./08Lifecycle/LifePrac1";
 import LifePrac2 from "./08Lifecycle/LifePrac2";
+import RefPrac1 from './09Ref/RefClass1';
+import RefFunc1 from './09Ref/RefFunc1';
+import SignupForm from './10Hook/Reducer';
+
 
 function App() {
     const [status, setStatus] = useState(true);
@@ -47,8 +51,11 @@ function App() {
             <UseStatePrac4 />
             <UseStatePrac5 /> */}
             {/* <LifePrac1/> */}
-            {status && <LifePrac2/>}
-            <button onClick={removeComp}>연결해제</button>
+            {/* {status && <LifePrac2/>}
+            <button onClick={removeComp}>연결해제</button> */}
+            {/* <RefPrac1/> */}
+            {/* <RefFunc1/> */}
+            <SignupForm/>
         </>
             
             

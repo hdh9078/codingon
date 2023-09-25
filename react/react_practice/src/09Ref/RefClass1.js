@@ -1,6 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
-class StatePrac3 extends Component {
+class RefPrac1 extends Component {
     constructor(props) {
         super(props);
 
@@ -14,7 +14,10 @@ class StatePrac3 extends Component {
         this.onChange = this.onChange.bind(this);
         this.addComment = this.addComment.bind(this);
     }
-    
+
+    //ref문제 코드
+    myInput = React.createRef();
+    myInput2 = React.createRef();
 
     onChange(e) {
         //console.log(e.target);
@@ -22,16 +25,22 @@ class StatePrac3 extends Component {
     }
 
     addComment() {
-        this.myInput.current.focus();
-        const newComment = {
-            writer: this.state.inputWriter,
-            title: this.state.inputTitle,
-        };
-        this.setState({
-            comments: [...this.state.comments, newComment],
-            inputTitle: "",
-            inputWriter: "",
-        });
+        if(this.state.inputWriter.trim() === "") { //trim = 스패이스바로 인한 문자없는 빈칸으로 인한 버그를 막아준다.
+            alert("작성자 입력")
+            this.myInput.current.focus();   
+        } else if(this.state.inputTitle.trim() === "") {
+            alert("제목 입력")
+            this.myInput2.current.focus()   
+        } else {
+            const newComment = {
+                writer: this.state.inputWriter,
+                title: this.state.inputTitle,
+            };
+            this.setState({
+                comments: [...this.state.comments, newComment],
+            });
+        }
+        
     }
 
     render() {
@@ -52,6 +61,7 @@ class StatePrac3 extends Component {
                     <input
                         type="text"
                         id="title"
+                        ref={this.myInput2}
                         value={inputTitle}
                         onChange={(e) =>
                             this.setState({ inputTitle: e.target.value })
@@ -87,4 +97,4 @@ class StatePrac3 extends Component {
     }
 }
 
-export default StatePrac3;
+export default RefPrac1;
