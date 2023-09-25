@@ -8,7 +8,6 @@ import ColorChange from "./230921-1"
 import Toggle2 from "./230921-2"
 import Test4 from "./230921-3"
 import Test5 from "./230921-4"
-import Solution from "./solution-3"
 import Test6 from "./230921-5"
 import LifeCycleClass from "./LifeCycleClass"
 
@@ -25,9 +24,8 @@ function App() {
       {/* <Toggle2/> */}
       {/* <Test4/> */}
       {/* <Test5/> */}
-      {/* <Solution/> */}
-      {/* <Test6/> */}
-      < LifeCycleClass/>
+      <Test6/>
+      {/* < LifeCycleClass/> */}
     </>
     
   );

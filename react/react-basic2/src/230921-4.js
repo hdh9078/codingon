@@ -21,19 +21,17 @@ export default function Test3() {
 
     const addSearch = () => {
         if(select1 === "작성") {
-            
-            setAnswer = comments.filter((comment) => {return comment.writer.includes(search)})
+            let aa = comments.filter((comment) => {return comment.writer.includes(search)})
+            setAnswer(aa)
             
         } else {
-            
-            setAnswer = comments.filter((comment) => {return comment.title.includes(search)})
+            let aa = comments.filter((comment) => {return comment.title.includes(search)})
+            setAnswer(aa)
             
         }
-        answer(setAnswer)
     }
 
-
-
+    console.log(answer, "11")
     return (
         <>
             <form name="form">
@@ -60,7 +58,7 @@ export default function Test3() {
                         </tr>
                     </thead>
                     <tbody>
-                        {answer.length > 0 ? answer : comments.map((value, index) => {
+                        {(answer.length > 0 ? answer : comments).map((value, index) => {
                             return (
                             <tr key={index}>
                                 <td>{index + 1}</td>
@@ -73,6 +71,5 @@ export default function Test3() {
                     </tbody>
                 </table>
         </>
-    )
-
-}
+        )
+    }
