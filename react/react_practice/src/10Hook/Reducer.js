@@ -15,7 +15,7 @@ function signupReducer(state, action) {
             return { ...state, password: action.payload };
         case "SET_CONFIRM_PASSWORD":
             return { ...state, confirmPassword: action.payload };
-        case "SUBMIT":
+        case "SIGN_UP":
             if (state.password === state.confirmPassword) {
                 return { ...state, message: "Signup successful!" };
             } else {

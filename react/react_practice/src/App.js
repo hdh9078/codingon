@@ -16,6 +16,9 @@ import LifePrac2 from "./08Lifecycle/LifePrac2";
 import RefPrac1 from './09Ref/RefClass1';
 import RefFunc1 from './09Ref/RefFunc1';
 import SignupForm from './10Hook/Reducer';
+import Sasstest1 from './11Style/Sasstest1';
+import Sasstest2 from './11Style/Sasstest2';
+import AddToList from './11Style/test1';
 
 
 function App() {
@@ -55,7 +58,10 @@ function App() {
             <button onClick={removeComp}>연결해제</button> */}
             {/* <RefPrac1/> */}
             {/* <RefFunc1/> */}
-            <SignupForm/>
+            {/* <SignupForm/> */}
+            {/* <Sasstest1/> */}
+            {/* <Sasstest2/> */}
+            <AddToList/>
         </>
             
             
