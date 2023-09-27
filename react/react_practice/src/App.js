@@ -18,7 +18,9 @@ import RefFunc1 from './09Ref/RefFunc1';
 import SignupForm from './10Hook/Reducer';
 import Sasstest1 from './11Style/Sasstest1';
 import Sasstest2 from './11Style/Sasstest2';
-import AddToList from './11Style/test1';
+import AddToList from './11Style/test2';
+import StylePrac from './11Style/test1';
+import Router from './12Router/Router';
 
 
 function App() {
@@ -61,7 +63,9 @@ function App() {
             {/* <SignupForm/> */}
             {/* <Sasstest1/> */}
             {/* <Sasstest2/> */}
-            <AddToList/>
+            {/* <AddToList/>
+            <StylePrac/> */}
+            <Router/>
         </>
             
             

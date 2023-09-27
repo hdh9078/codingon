@@ -1,4 +1,4 @@
-// import LifeCycleFunc from "./08Lifecycle/LifeCycleFunc";
+import {Outlet} from "react-router-dom"
 
 
 import LifeCycleFunc from "./08Lifecycle/LifeCycleFunc"
@@ -12,6 +12,9 @@ import Counter from "./10Hook/useReducer";
 import SassComponent from "./11Style/SassComponent";
 import Style from "./11Style/Style";
 import StyledComponent from "./11Style/StyledComponent"
+// import Router from "./12Router/Router";
+import Header from "./12Router/Header";
+
 function App() {
     return (
         <>
@@ -26,7 +29,10 @@ function App() {
             {/* <Counter/> */}
             {/* <Style/> */}
             {/* <SassComponent/> */}
-            <StyledComponent/>
+            {/* <StyledComponent/> */}
+            {/* <Router/> */}
+            <Header/>
+            <Outlet />
         </>
     )    
 }

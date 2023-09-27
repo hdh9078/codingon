@@ -1,36 +1,24 @@
-import {useState} from "react"
-import "./test1.scss";
-
-export default function AddToList() {
-    const [state, setState] = useState("");
-    const [toDoList, setToDoList] =useState([]);
+import { useState } from "react";
+import styled from "styled-components";
 
 
-    const addList = () => {
-        const newList = {
-            todo: state
-        }
-        setToDoList([...toDoList, newList])
-    }
+const _Btn = styled.button`
+    background-color: ${props => props.clicked ? "red" : "blue"};
+    color: ${props => props.clicked ? "black" : "white"};
+    padding:10px;
+    cursor: pointer;
+`
 
+
+export default function StylePrac() {
+    const [clicked, setClicked] = useState(false);
+    const onClick = () => {
+        setClicked(!clicked);
+    };
 
     return (
         <>
-            <form>
-                <input type="text" value={state} onChange={(e) => setState(e.currentTarget.value)}/>
-                <button type="button" onClick={addList}>ADD</button>
-            </form>
-            <div className="main">
-                {toDoList.map((value, index) => {
-                    return (
-                        <ul key={index}>
-                            <li>{value.todo}</li>
-                        </ul>
-                    )
-                })}
-            </div>
-            
-            
+            <_Btn onClick={onClick} clicked={clicked}>버튼</_Btn>
         </>
     )
 }
