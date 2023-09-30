@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-export default function Test5() {
+export default function Todo() {
     const [todos, setTodos] = useState([]); //할일목록
     const [inputTodo, setInputTodo] = useState(""); //inut에 입력할 값
 
@@ -32,14 +32,15 @@ export default function Test5() {
     }
 
     const RemoveTodo = () => {
-        const result = todos.filter((value) => !value.checked === true)
+        const result = todos.filter((value) => value.checked === false)
         setTodos(result);
     }
 
     return (
         <>
-            <input type="text" value={inputTodo} onChange={(e) => setInputTodo(e.target.value)} placeholder="할 일 입력"/>
-            <button onClick={addTodo}>추가</button>
+            <label htmlFor="inputTodo"></label>
+            <input type="text" id="inputTodo" value={inputTodo} onChange={(e) => setInputTodo(e.target.value)} placeholder="할 일 입력"/>
+            <button onClick={addTodo}>ADD</button>
             <ul>
                 {todos.map((todo) => {
                     return (
@@ -49,7 +50,6 @@ export default function Test5() {
                     );
                 })}
             </ul>
-            <button onClick={RemoveTodo}>삭제</button>
         </>
     )
 }
