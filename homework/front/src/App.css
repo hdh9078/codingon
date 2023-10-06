@@ -1,0 +1,34 @@
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    display: flex;
+}
+
+.main {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+li {
+    gap: 2px;
+}
+
+button {
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: cadetblue;
+    color: bisque;
+}

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-const UserModel = (sequelize) => {
+const User = (sequelize) => {
     return sequelize.define('homework', {
         id: {
             type: DataTypes.INTEGER,
@@ -26,4 +26,4 @@ const UserModel = (sequelize) => {
     
 };
 
-module.exports = UserModel;
+module.exports = User;

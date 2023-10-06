@@ -21,6 +21,13 @@ import Sasstest2 from './11Style/Sasstest2';
 import AddToList from './11Style/test2';
 import StylePrac from './11Style/test1';
 import Router from './12Router/Router';
+import Form from './13Form/Form';
+import { SettingProvider } from './14Context/store/setting-contec';
+import ThemaSelector from './14Context/ThemaSelector';
+import ProductList from './14Context/ProductList';
+import Cart from './14Context/Cart';
+import { CartProvider } from './14Context/store/cart-context';
+
 
 
 function App() {
@@ -29,8 +36,18 @@ function App() {
         setStatus(!status)
     }
     
+    
+
     return (
         <>
+            <CartProvider>
+                <ProductList/>
+                <Cart/>
+            </CartProvider>
+            
+            {/* <SettingProvider>
+                <ThemaSelector/>
+            </SettingProvider> */}
             {/* <button onClick={removeComp}>연결해제</button>
             {status && <LifePrac2/>} */}
             {/* Prop 실습 */}
@@ -65,7 +82,9 @@ function App() {
             {/* <Sasstest2/> */}
             {/* <AddToList/>
             <StylePrac/> */}
-            <Router/>
+            {/* <Router/> */}
+            
+            
         </>
             
             
