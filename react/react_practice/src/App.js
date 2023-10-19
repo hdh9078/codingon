@@ -27,6 +27,8 @@ import ThemaSelector from './14Context/ThemaSelector';
 import ProductList from './14Context/ProductList';
 import Cart from './14Context/Cart';
 import { CartProvider } from './14Context/store/cart-context';
+import FuncPrac1 from './02Func/FuncPrac';
+
 
 
 
@@ -40,10 +42,11 @@ function App() {
 
     return (
         <>
-            <CartProvider>
+            {/* <FuncPrac1/> */}
+            {/* <CartProvider>
                 <ProductList/>
                 <Cart/>
-            </CartProvider>
+            </CartProvider> */}
             
             {/* <SettingProvider>
                 <ThemaSelector/>
@@ -67,11 +70,11 @@ function App() {
             <StatePrac3 />
             <StatePrac4 /> */}
             {/* useState 실습 */}
-            {/* <UseStatePrac1 />
+            <UseStatePrac1 />
             <UseStatePrac2 />
             <UseStatePrac3 />
             <UseStatePrac4 />
-            <UseStatePrac5 /> */}
+            <UseStatePrac5 />
             {/* <LifePrac1/> */}
             {/* {status && <LifePrac2/>}
             <button onClick={removeComp}>연결해제</button> */}

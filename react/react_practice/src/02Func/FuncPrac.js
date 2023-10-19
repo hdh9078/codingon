@@ -17,6 +17,22 @@ function FuncPrac1() {
             ))}
         </>
     );
+    
 }
 
 export default FuncPrac1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

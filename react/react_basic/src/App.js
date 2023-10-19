@@ -19,15 +19,16 @@ import Form from "./13Form/Form";
 import MyContext, { LanguageProvider } from './14Context/store/lang-contec';
 import LanguageSelector from "./14Context/store/LangSelector";
 
+
 function App() {
 
     // const [language, setLanguage] = useState()
 
     return (
         <>
-            <LanguageProvider>
+            {/* <LanguageProvider>
                 <LanguageSelector/>
-            </LanguageProvider>
+            </LanguageProvider> */}
             
             {/* <MyContext.Provider value={{language:language, setLanguage:setLanguage}}> */}
                 {/* <MyContext.Consumer>
@@ -49,5 +50,6 @@ function App() {
         </>
     )    
 }
+
 
 export default App;
