@@ -27,3 +27,4 @@ person = [
         age: 20,
     },
 ]
+console.log(person)

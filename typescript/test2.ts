@@ -21,3 +21,5 @@ let heroGame_B: Game = {
     category: "RPG",
     platform: "PC"
 }
+
+console.log(heroGame_A, heroGame_B)
